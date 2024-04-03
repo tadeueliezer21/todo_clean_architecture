@@ -1,19 +1,18 @@
+import 'package:either_dart/either.dart';
+import 'package:todo_clean_architecture/src/shared/failure/failure.dart';
+import 'package:todo_clean_architecture/src/todo/data/datasource/todo_datasource.dart';
 import 'package:todo_clean_architecture/src/todo/data/models/todo_model.dart';
-import 'package:todo_clean_architecture/src/shared/infra/request.dart';
 
-class GetTodoRepository extends Request<TodoModel> {
-  GetTodoRepository({required super.api});
+class GetTodoRepository {
+  final TodoDataSource dataSource;
 
-  Future<List<TodoModel>> getTodos() {
-    return super.mult('/todos');
+  GetTodoRepository(this.dataSource);
+
+  Future<Either<Failure, List<TodoModel>>> getTodos() {
+    return dataSource.getMultTodo();
   }
 
-  Future<TodoModel> getTodo(String id) {
-    return super.single('/todos/$id');
-  }
-
-  @override
-  TodoModel fromJSON(Map map) {
-    return TodoModel.fromJSON(map);
+  Future<Either<Failure, TodoModel>> getTodo(String id) {
+    return dataSource.getSingleTodo(id);
   }
 }

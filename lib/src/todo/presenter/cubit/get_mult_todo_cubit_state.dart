@@ -15,6 +15,9 @@ final class GetTodoCubitLoading extends GetMultTodoCubitState {
 }
 
 final class GetTodoCubitError extends GetMultTodoCubitState {
+  final String message;
+
+  GetTodoCubitError(this.message);
   @override
   List<Object?> get props => [];
 }

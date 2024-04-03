@@ -16,15 +16,13 @@ class GetMultTodoCubit extends Cubit<GetMultTodoCubitState> {
   }
 
   void loadTodos() async {
-    emit(GetTodoCubitInitial());
+    emit(GetTodoCubitLoading());
 
     final result = await getMultTodoUseCase.call();
 
-    if (result.isLeft) {
-      emit(GetTodoCubitError());
-      return;
-    }
-
-    emit(GetTodoCubitSuccess(list: result.right));
+    result.fold(
+      (err) => GetTodoCubitError(err.message),
+      (list) => emit(GetTodoCubitSuccess(list: list)),
+    );
   }
 }
