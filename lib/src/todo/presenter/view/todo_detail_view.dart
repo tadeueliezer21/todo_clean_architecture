@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_clean_architecture/src/shared/ioc/ioc.dart';
 import 'package:todo_clean_architecture/src/todo/presenter/cubit/get_single_todo_cubit.dart';
+import 'package:todo_clean_architecture/src/todo/presenter/widgets/todo_widget.dart';
 
 class TodoDetailView extends StatefulWidget {
   final int id;
@@ -42,22 +43,7 @@ class _TodoDetailViewState extends State<TodoDetailView> {
               }
 
               if (state is GetSingleTodoSuccess) {
-                return Container(
-                  height: MediaQuery.of(context).size.height,
-                  color: state.todo.completed ? Colors.green : Colors.red,
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        state.todo.title,
-                        style: const TextStyle(fontSize: 30),
-                        textAlign: TextAlign.center,
-                      ),
-                      Icon(state.todo.completed ? Icons.check : Icons.close)
-                    ],
-                  ),
-                );
+                return TodoWidget(todo: state.todo);
               }
 
               return const Offstage();
