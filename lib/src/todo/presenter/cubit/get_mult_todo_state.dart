@@ -4,7 +4,7 @@ part of 'get_mult_todo_cubit.dart';
 abstract class GetMultTodoCubitState extends Equatable {}
 
 final class GetTodoCubitInitial extends GetMultTodoCubitState {
-  final List<TodoModel> list = [];
+  final List<TodoEntity> list = [];
   @override
   List<Object?> get props => [];
 }
@@ -23,7 +23,7 @@ final class GetTodoCubitError extends GetMultTodoCubitState {
 }
 
 final class GetTodoCubitSuccess extends GetMultTodoCubitState {
-  final List<TodoModel> list;
+  final List<TodoEntity> list;
 
   GetTodoCubitSuccess({required this.list});
 

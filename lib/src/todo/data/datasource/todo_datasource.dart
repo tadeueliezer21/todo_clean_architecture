@@ -10,9 +10,9 @@ import 'package:todo_clean_architecture/src/shared/infra/exception/http_error.da
 class TodoDataSource extends RestTemplate<TodoModel> {
   TodoDataSource(super.api, {required super.httpClient});
 
-  Future<Either<Failure, TodoModel>> getSingleTodo(String id) async {
+  Future<Either<Failure, TodoModel>> getSingleTodo(int id) async {
     try {
-      final response = await super.single('/todos/$id');
+      final response = await super.findById('/todos/$id');
 
       return Right(response);
     } catch (err) {
@@ -30,8 +30,7 @@ class TodoDataSource extends RestTemplate<TodoModel> {
 
   Future<Either<Failure, List<TodoModel>>> getMultTodo() async {
     try {
-      await Future.delayed(const Duration(seconds: 5));
-      final response = await super.mult('/todos');
+      final response = await super.findAll('/todos');
 
       return Right(response);
     } catch (err) {

@@ -1,11 +1,12 @@
 import 'package:todo_clean_architecture/src/todo/data/entities/todo_entity.dart';
 
 class TodoModel extends TodoEntity {
-  const TodoModel(
-      {required super.userId,
-      required super.id,
-      required super.title,
-      required super.completed});
+  const TodoModel({
+    required super.userId,
+    required super.id,
+    required super.title,
+    required super.completed,
+  });
 
   factory TodoModel.fromJSON(Map map) {
     return TodoModel(
