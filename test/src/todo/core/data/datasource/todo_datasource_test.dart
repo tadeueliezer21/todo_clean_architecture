@@ -69,9 +69,7 @@ void main() {
       late List<TodoModel> list;
       response.fold((left) => null, (right) => list = right);
 
-      var expectedTodos =
-          (jsonDecode(getJSON('list_of_todos')) as List<dynamic>)
-              .map((todo) => TodoModel.fromJSON(todo));
+      var expectedTodos = listOfTodos();
 
       expect(expectedTodos, equals(list));
 

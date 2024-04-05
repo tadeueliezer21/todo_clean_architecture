@@ -26,7 +26,7 @@ class TodoDataSourceImpl extends RestTemplate<TodoModel>
         return Left(GetTodoFailure(message: err.message));
       }
 
-      throw GetTodoFailure(message: 'Unexpected error');
+      throw const GetTodoFailure(message: 'Unexpected error');
     }
   }
 
@@ -44,7 +44,7 @@ class TodoDataSourceImpl extends RestTemplate<TodoModel>
       if (err is UnknowError) {
         return Left(GetTodoFailure(message: err.message));
       }
-      throw GetTodoFailure(message: 'Unexpected error');
+      throw const GetTodoFailure(message: 'Unexpected error');
     }
   }
 
