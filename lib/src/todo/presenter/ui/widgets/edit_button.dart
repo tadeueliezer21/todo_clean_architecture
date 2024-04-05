@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_clean_architecture/src/todo/presenter/view/todo_detail_view.dart';
+import 'package:todo_clean_architecture/src/todo/presenter/ui/view/todo_detail_view.dart';
 
 class EditButton extends StatelessWidget {
   final bool isCompleted;

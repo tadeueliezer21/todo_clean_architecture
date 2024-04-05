@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_clean_architecture/src/shared/ioc/ioc.dart';
+import 'package:todo_clean_architecture/src/shared/ioc/ioc.dart' as it;
 import 'package:todo_clean_architecture/src/todo/presenter/cubit/get_mult_todo_cubit.dart';
-import 'package:todo_clean_architecture/src/todo/presenter/widgets/edit_button.dart';
+import 'package:todo_clean_architecture/src/todo/presenter/ui/widgets/edit_button.dart';
 
 class TodoList extends StatelessWidget {
   const TodoList({
@@ -25,11 +25,9 @@ class TodoList extends StatelessWidget {
       body: SizedBox(
         child: MultiBlocProvider(
           providers: [
-            BlocProvider(create: (context) => getMultTodoCubit),
-            BlocProvider(create: (context) => getSingleTodoCubit)
+            BlocProvider(create: (context) => it.sl<GetMultTodoCubit>()),
           ],
           child: BlocBuilder<GetMultTodoCubit, GetMultTodoCubitState>(
-            bloc: getMultTodoCubit,
             builder: (context, state) {
               if (state is GetTodoCubitLoading) {
                 return const Center(

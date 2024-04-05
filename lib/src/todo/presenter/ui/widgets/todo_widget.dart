@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_clean_architecture/src/todo/data/entities/todo_entity.dart';
+import 'package:todo_clean_architecture/src/todo/core/data/entities/todo_entity.dart';
 
 class TodoWidget extends StatelessWidget {
   final TodoEntity todo;

@@ -13,9 +13,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.5
+  get_it: ^7.6.8
   http: ^1.2.1
-  logging: ^1.2.0
   meta: ^1.11.0
+  mocktail: ^1.0.3
 
 dev_dependencies:
   flutter_test:

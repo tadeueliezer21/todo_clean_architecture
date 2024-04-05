@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:todo_clean_architecture/src/todo/data/entities/todo_entity.dart';
-import 'package:todo_clean_architecture/src/todo/usecase/get_mult_todo_usecase.dart';
+import 'package:todo_clean_architecture/src/todo/core/data/entities/todo_entity.dart';
+import 'package:todo_clean_architecture/src/todo/core/usecase/abs_get_mult_todo_usecase.dart';
 
 part 'get_mult_todo_state.dart';
 

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:todo_clean_architecture/src/todo/presenter/view/list_todo_view.dart';
+import 'package:todo_clean_architecture/src/shared/ioc/ioc.dart' as it;
+import 'package:todo_clean_architecture/src/todo/presenter/ui/view/list_todo_view.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await it.ioc();
   runApp(const MainApp());
 }
 
