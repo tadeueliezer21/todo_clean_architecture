@@ -35,9 +35,9 @@ Esse App apenas consome uma API de Todo
 
 ![Lista de Todos](list_todo.png)
 
-![Todo finalizado](todo_completed.png.png)
+![Todo finalizado](todo_not_completed.png)
 
-![Todo nao finalizado](todo_not_completed.png.png)
+![Todo nao finalizado](todo_not_completed.png)
 
 
 ## Tech Stack
