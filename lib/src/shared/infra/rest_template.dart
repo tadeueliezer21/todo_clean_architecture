@@ -25,6 +25,8 @@ abstract class RestTemplate<T> {
 
       var jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
       return fromJSON(jsonResponse);
+    } on HttpException catch (err) {
+      throw HttpError(err.message);
     } on SocketException catch (err) {
       throw HttpError(err.message);
     } on FormatException catch (err) {
@@ -46,6 +48,8 @@ abstract class RestTemplate<T> {
       var jsonResponse = jsonDecode(response.body) as List<dynamic>;
 
       return jsonResponse.map((map) => fromJSON(map)).toList();
+    } on HttpException catch (err) {
+      throw HttpError(err.message);
     } on SocketException catch (err) {
       throw HttpError(err.message);
     } on FormatException catch (err) {

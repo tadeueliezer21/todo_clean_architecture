@@ -3,7 +3,6 @@ import 'package:todo_clean_architecture/src/shared/failure/failure.dart';
 import 'package:todo_clean_architecture/src/shared/infra/exception/unknow_error.dart';
 import 'package:todo_clean_architecture/src/shared/infra/rest_template.dart';
 import 'package:todo_clean_architecture/src/todo/core/data/datasource/abs_todo_datasource.dart';
-import 'package:todo_clean_architecture/src/todo/core/exception/get_todos_exception.dart';
 import 'package:todo_clean_architecture/src/todo/core/failure/get_todo_failure.dart';
 import 'package:todo_clean_architecture/src/todo/core/data/models/todo_model.dart';
 import 'package:todo_clean_architecture/src/shared/infra/exception/http_error.dart';
@@ -27,7 +26,7 @@ class TodoDataSourceImpl extends RestTemplate<TodoModel>
         return Left(GetTodoFailure(message: err.message));
       }
 
-      throw GetTodosException('Unexpected error');
+      throw GetTodoFailure(message: 'Unexpected error');
     }
   }
 
@@ -45,7 +44,7 @@ class TodoDataSourceImpl extends RestTemplate<TodoModel>
       if (err is UnknowError) {
         return Left(GetTodoFailure(message: err.message));
       }
-      throw GetTodosException('Unexpected error');
+      throw GetTodoFailure(message: 'Unexpected error');
     }
   }
 
